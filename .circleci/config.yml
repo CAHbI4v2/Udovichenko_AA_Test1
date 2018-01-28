@@ -29,6 +29,9 @@ jobs:
       - store_test_results:
           path: app/build/test-results
       - run:
+          name: Download Keystore
+          command: bash ./scripts/download_keystore.sh
+      - run:
           name: Build
           command: ./gradlew assembleRelease
       - deploy:
