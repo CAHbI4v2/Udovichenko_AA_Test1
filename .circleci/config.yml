@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/code
     docker:
-      - image: circleci/android:api-26-alpha
+      - image: circleci/android:api-25-alpha
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
@@ -13,6 +13,9 @@ jobs:
 #      - run:
 #         name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
 #         command: sudo chmod +x ./gradlew
+      - run:
+          name: Download Keystore
+          command: bash ./scripts/download_keystore.sh
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
@@ -28,6 +31,9 @@ jobs:
           destination: reports
       - store_test_results:
           path: app/build/test-results
+      - run:
+          name: Build
+          command: ./gradlew assembleRelease
       - deploy:
           name: Deploy APK.
           command: |

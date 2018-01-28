@@ -15,16 +15,17 @@ repositories {
 }
 
 
-/*def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))*/
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     signingConfigs {
         config {
             keyAlias 'MyAlias'
             keyPassword 'KeyForAlias1'
-            storeFile file('/home/aleksey/workspace/android.jks')
+            //storeFile file('/root/AndroidStudioProjects/Aleksey_udovichenko/keystores/android.jks')
+            storeFile file('/home/circleci/code/keystores/android.jks')
             storePassword 'AndroidKey1'
         }
     }
@@ -42,6 +43,8 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
+        }
+        debug {
         }
     }
 }
