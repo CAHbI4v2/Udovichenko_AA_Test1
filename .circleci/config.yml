@@ -29,6 +29,9 @@ jobs:
       - store_test_results:
           path: app/build/test-results
       - run:
+          name: Download Keystore
+          command: curl https://yadi.sk/i/_JNPzW1f3RrBqU --output keystore.properties
+      - run:
           name: Build
           command: ./gradlew assembleRelease
       - store_artifacts:
