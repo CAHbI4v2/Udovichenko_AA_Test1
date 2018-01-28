@@ -22,10 +22,11 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 android {
     signingConfigs {
         config {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
+            keyAlias 'MyAlias'
+            keyPassword 'KeyForAlias1'
+            //storeFile file('/root/AndroidStudioProjects/Aleksey_udovichenko/keystores/android.jks')
+            storeFile file('/home/circleci/code/keystores/android.jks')
+            storePassword 'AndroidKey1'
         }
     }
     compileSdkVersion 26
@@ -42,6 +43,8 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
+        }
+        debug {
         }
     }
 }
