@@ -8,6 +8,9 @@ jobs:
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
+      - run:
+          name: Download Keystore
+          command: curl https://yadi.sk/i/_JNPzW1f3RrBqU --output keystore.properties
       - restore_cache:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
@@ -28,9 +31,6 @@ jobs:
           destination: reports
       - store_test_results:
           path: app/build/test-results
-      - run:
-          name: Download Keystore
-          command: curl https://yadi.sk/i/_JNPzW1f3RrBqU --output keystore.properties
       - run:
           name: Build
           command: ./gradlew assembleRelease
