@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margAvatar">10dp</dimen>
+    <dimen name="TextSize">24sp</dimen>
+    <dimen name="paddingSmall">20dp</dimen>
+    <dimen name="miracle_number">270dp</dimen>
+    <dimen name="paddingLarge">48dp</dimen>
+</resources>
