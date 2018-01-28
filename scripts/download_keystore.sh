@@ -1,1 +1,1 @@
-curl https://yadi.sk/i/D4Dknr9L3RroJH -L --output keystore.properties
+curl https://yadi.sk/i/MRWnGxI63Rrq8D -L --output keystore.properties
